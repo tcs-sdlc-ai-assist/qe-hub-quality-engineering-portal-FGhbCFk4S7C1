@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext.jsx'
 import { MOCK_USERS } from '../data/mockUsers.js'
 import { ROLES } from '../constants/roles.js'
+import logo from '../assets/logo.png'
 
 const ROLE_LABELS = {
   [ROLES.ADMIN]: 'Admin',
@@ -94,26 +95,15 @@ export default function LoginPage() {
       <div className="w-full max-w-2xl">
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary-600 text-white mb-4">
-            <svg
-              className="w-8 h-8"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
-              />
-            </svg>
+          <div className="flex justify-center mb-4">
+            <img
+              src={logo}
+              alt="QE Hub"
+              width={204}
+              height={72}
+              style={{ width: '204px', height: '72px', objectFit: 'contain' }}
+            />
           </div>
-          <h1 className="text-2xl font-bold text-enterprise-dark">
-            QE Hub Portal
-          </h1>
           <p className="mt-2 text-sm text-enterprise-muted">
             Quality Engineering Hub — Select a user to sign in
           </p>
