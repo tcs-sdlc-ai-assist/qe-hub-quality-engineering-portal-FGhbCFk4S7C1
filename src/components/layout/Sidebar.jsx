@@ -334,13 +334,15 @@ export default function Sidebar({ isCollapsed = false, onToggleCollapse }) {
     <aside className={sidebarClasses} aria-label="Sidebar navigation">
       <div className="flex items-center justify-between px-4 py-4 border-b border-enterprise-border">
         {!isCollapsed && (
-          <img
-            src={logo}
-            alt="QE Hub"
-            width={204}
-            height={72}
-            style={{ width: '204px', height: '72px', objectFit: 'contain' }}
-          />
+          <div className="rounded-lg bg-white px-3 py-1.5 shadow-sm flex items-center justify-center">
+            <img
+              src={logo}
+              alt="QE Hub"
+              width={204}
+              height={72}
+              style={{ width: '204px', height: '72px', objectFit: 'contain' }}
+            />
+          </div>
         )}
 
         {typeof onToggleCollapse === 'function' && (
