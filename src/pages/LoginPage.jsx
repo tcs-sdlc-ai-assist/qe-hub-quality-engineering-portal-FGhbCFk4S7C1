@@ -96,13 +96,12 @@ export default function LoginPage() {
         {/* Header */}
         <div className="text-center mb-8">
           <div className="flex justify-center mb-4">
-            <div className="rounded-lg bg-white px-3 py-1.5 shadow-sm flex items-center justify-center">
+            <div className="rounded-lg overflow-hidden flex items-center justify-center">
               <img
                 src={logo}
                 alt="QE Hub"
-                width={204}
-                height={72}
-                style={{ width: '204px', height: '72px', objectFit: 'contain' }}
+                className="rounded-lg"
+                style={{ width: '204px', height: '72px', objectFit: 'cover' }}
               />
             </div>
           </div>

@@ -3,6 +3,7 @@ import { useLocation, Link } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext.jsx'
 import { NAVIGATION_ITEMS } from '../../constants/navigation.js'
 import { useTheme } from '../../contexts/ThemeContext.jsx'
+import logo from '../../assets/logo.png'
 
 const ROLE_BADGE_CONFIG = {
   ADMIN: {
@@ -115,9 +116,14 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8 bg-enterprise-surface border-b border-enterprise-border shadow-card animate-fade-in">
       <div className="flex items-center gap-4 min-w-0">
-        <h1 className="text-lg font-bold text-enterprise-dark whitespace-nowrap hidden sm:block">
-          QE Hub
-        </h1>
+        <Link to="/" className="flex-shrink-0 flex items-center">
+          <img
+            src={logo}
+            alt="QE Hub"
+            className="rounded-md"
+            style={{ width: '190px', height: '55px', objectFit: 'cover' }}
+          />
+        </Link>
 
         {breadcrumbs.length > 1 && (
           <nav className="flex items-center min-w-0" aria-label="Breadcrumb">

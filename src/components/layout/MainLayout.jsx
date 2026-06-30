@@ -11,14 +11,14 @@ export default function MainLayout() {
   }, [])
 
   return (
-    <div className="flex h-screen overflow-hidden bg-enterprise-background">
-      <Sidebar
-        isCollapsed={isCollapsed}
-        onToggleCollapse={handleToggleCollapse}
-      />
+    <div className="flex flex-col h-screen overflow-hidden bg-enterprise-background">
+      <Header />
 
-      <div className="flex flex-col flex-1 min-w-0 overflow-hidden">
-        <Header />
+      <div className="flex flex-1 overflow-hidden">
+        <Sidebar
+          isCollapsed={isCollapsed}
+          onToggleCollapse={handleToggleCollapse}
+        />
 
         <main className="flex-1 overflow-y-auto">
           <div className="page-container animate-fade-in">

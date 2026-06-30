@@ -2,7 +2,6 @@ import { useState, useCallback, useMemo } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { NAVIGATION_ITEMS } from '../../constants/navigation.js'
 import { useAuth } from '../../contexts/AuthContext.jsx'
-import logo from '../../assets/logo.png'
 
 const ROLE_BADGE_CONFIG = {
   ADMIN: {
@@ -232,18 +231,16 @@ export default function Sidebar({ isCollapsed = false, onToggleCollapse }) {
             <button
               type="button"
               onClick={() => toggleExpand(item.id)}
-              className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors duration-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 ${
-                parentActive
-                  ? 'text-primary-700 bg-primary-50'
-                  : 'text-enterprise-dark hover:bg-enterprise-background'
-              }`}
+              className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors duration-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 ${parentActive
+                ? 'text-primary-700 bg-primary-50'
+                : 'text-enterprise-dark hover:bg-enterprise-background'
+                }`}
               aria-expanded={isExpanded}
               aria-label={`${item.label} menu`}
             >
               <span
-                className={`flex-shrink-0 ${
-                  parentActive ? 'text-primary-600' : 'text-enterprise-muted'
-                }`}
+                className={`flex-shrink-0 ${parentActive ? 'text-primary-600' : 'text-enterprise-muted'
+                  }`}
               >
                 {renderIcon(item.icon)}
               </span>
@@ -251,9 +248,8 @@ export default function Sidebar({ isCollapsed = false, onToggleCollapse }) {
                 <>
                   <span className="flex-1 text-left truncate">{item.label}</span>
                   <svg
-                    className={`w-4 h-4 flex-shrink-0 text-enterprise-muted transition-transform duration-200 ${
-                      isExpanded ? 'rotate-90' : ''
-                    }`}
+                    className={`w-4 h-4 flex-shrink-0 text-enterprise-muted transition-transform duration-200 ${isExpanded ? 'rotate-90' : ''
+                      }`}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -278,10 +274,9 @@ export default function Sidebar({ isCollapsed = false, onToggleCollapse }) {
                     <NavLink
                       to={child.path}
                       className={({ isActive }) =>
-                        `block px-3 py-2 rounded-lg text-sm transition-colors duration-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 ${
-                          isActive
-                            ? 'text-primary-700 bg-primary-50 font-medium'
-                            : 'text-enterprise-muted hover:text-enterprise-dark hover:bg-enterprise-background'
+                        `block px-3 py-2 rounded-lg text-sm transition-colors duration-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 ${isActive
+                          ? 'text-primary-700 bg-primary-50 font-medium'
+                          : 'text-enterprise-muted hover:text-enterprise-dark hover:bg-enterprise-background'
                         }`
                       }
                       aria-label={child.label}
@@ -302,10 +297,9 @@ export default function Sidebar({ isCollapsed = false, onToggleCollapse }) {
             to={item.path}
             end={item.path === '/'}
             className={({ isActive }) =>
-              `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors duration-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 ${
-                isActive
-                  ? 'text-primary-700 bg-primary-50'
-                  : 'text-enterprise-dark hover:bg-enterprise-background'
+              `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors duration-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 ${isActive
+                ? 'text-primary-700 bg-primary-50'
+                : 'text-enterprise-dark hover:bg-enterprise-background'
               }`
             }
             aria-label={item.label}
@@ -332,32 +326,19 @@ export default function Sidebar({ isCollapsed = false, onToggleCollapse }) {
 
   return (
     <aside className={sidebarClasses} aria-label="Sidebar navigation">
-      <div className="flex items-center justify-between px-4 py-4 border-b border-enterprise-border">
-        {!isCollapsed && (
-          <div className="rounded-lg bg-white px-3 py-1.5 shadow-sm flex items-center justify-center">
-            <img
-              src={logo}
-              alt="QE Hub"
-              width={204}
-              height={72}
-              style={{ width: '204px', height: '72px', objectFit: 'contain' }}
-            />
-          </div>
-        )}
+      <div className={`flex items-center px-4 py-4 border-b border-enterprise-border ${isCollapsed ? 'justify-center' : 'justify-end'}`}>
 
         {typeof onToggleCollapse === 'function' && (
           <button
             type="button"
             onClick={onToggleCollapse}
-            className={`flex-shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-lg text-enterprise-muted hover:text-enterprise-dark hover:bg-enterprise-background transition-colors duration-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 ${
-              isCollapsed ? 'mx-auto' : ''
-            }`}
+            className={`flex-shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-lg text-enterprise-muted hover:text-enterprise-dark hover:bg-enterprise-background transition-colors duration-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 ${isCollapsed ? 'mx-auto' : ''
+              }`}
             aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
           >
             <svg
-              className={`w-5 h-5 transition-transform duration-200 ${
-                isCollapsed ? 'rotate-180' : ''
-              }`}
+              className={`w-5 h-5 transition-transform duration-200 ${isCollapsed ? 'rotate-180' : ''
+                }`}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
