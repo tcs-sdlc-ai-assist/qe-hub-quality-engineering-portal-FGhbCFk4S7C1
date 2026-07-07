@@ -100,8 +100,8 @@ export default function LoginPage() {
               <img
                 src={logo}
                 alt="QE Hub"
-                className="rounded-lg"
-                style={{ width: '204px', height: '72px', objectFit: 'cover' }}
+                className="rounded-lg bg-white p-1"
+                style={{ width: '204px', height: '72px', objectFit: 'contain' }}
               />
             </div>
           </div>

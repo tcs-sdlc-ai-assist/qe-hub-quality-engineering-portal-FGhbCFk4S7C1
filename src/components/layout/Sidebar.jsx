@@ -326,7 +326,15 @@ export default function Sidebar({ isCollapsed = false, onToggleCollapse }) {
 
   return (
     <aside className={sidebarClasses} aria-label="Sidebar navigation">
-      <div className={`flex items-center px-4 py-4 border-b border-enterprise-border ${isCollapsed ? 'justify-center' : 'justify-end'}`}>
+      <div className={`flex items-center px-4 py-4 border-b border-enterprise-border ${isCollapsed ? 'justify-center' : 'justify-between'}`}>
+        {!isCollapsed && (
+          <span
+            className="font-semibold uppercase tracking-wider text-enterprise-muted truncate mr-2"
+            style={{ fontSize: '0.85rem' }}
+          >
+            Quality Engineering Hub
+          </span>
+        )}
 
         {typeof onToggleCollapse === 'function' && (
           <button

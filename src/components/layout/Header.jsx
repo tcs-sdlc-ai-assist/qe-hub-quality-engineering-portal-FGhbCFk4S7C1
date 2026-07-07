@@ -120,8 +120,8 @@ export default function Header() {
           <img
             src={logo}
             alt="QE Hub"
-            className="rounded-md"
-            style={{ width: '190px', height: '55px', objectFit: 'cover' }}
+            className="rounded-md bg-white p-1"
+            style={{ width: '195px', height: '60px', objectFit: 'contain' }}
           />
         </Link>
 
